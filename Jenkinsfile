@@ -25,7 +25,7 @@ pipeline {
         }
            stage('Docker Build and Push') {
             steps {
-              withDockerRegistry([credentialsId: "github_account", url: "https://quay.io/"]) {
+              withDockerRegistry([credentialsId: "github_account", url: "https://ghcr.io/"]) {
                 sh 'printenv'
                 sh 'sudo docker build -t ghcr.io/peterlymo/numeric-app:""$GIT_COMMIT"" .'
                 sh 'docker push ghcr.io/peterlymo/numeric-app:""$GIT_COMMIT""'
